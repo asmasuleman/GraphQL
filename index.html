@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reboot01 Dashboard</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+    <!-- Main App Container -->
+    <div id="app">
+        <!-- Login Page -->
+        <div id="login-page" class="view-page">
+            <div class="login-page">
+                <div class="login-container">
+                    <h1 class="login-title">Login to Reboot01</h1>
+                    <form class="form" id="loginForm">
+                        <div class="form__message form__message--error"></div>
+                        <div class="form-group">
+                            <input type="text" class="form__input" autofocus placeholder="Username or email" id="username"/>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form__input" placeholder="Password" id="password"/>
+                        </div>
+                        <button class="login-btn" type="submit">Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Profile Page -->
+        <div id="profile-page" class="view-page hidden">
+            <div class="main__content">
+                <div class="profile-header">
+                    <div class="profile-header-content">
+                        <h1>Welcome, <span id="user-name">Loading...</span>!</h1>
+                        <button class="header-logout-btn" data-logout>Logout</button>
+                    </div>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>Personal Info</h3>
+                        <div class="stat-content">
+                            <p><strong>Email:</strong> <span id="user-email">Loading...</span></p>
+                            <p><strong>Username:</strong> <span id="user-login">Loading...</span></p>
+                            <p><strong>Cohort:</strong> <span id="user-cohort">Loading...</span></p>
+                            <p><strong>Full Name:</strong> <span id="user-fullname">Loading...</span></p>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <h3>XP Statistics</h3>
+                        <div class="stat-content">
+                            <p><strong>Total XP:</strong> <span id="total-xp">Loading...</span></p>
+                            <p><strong>Audit Ratio:</strong> <span id="audit-ratio">Loading...</span></p>
+                            <p><strong>Projects Completed:</strong> <span id="projects-count">Loading...</span></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="graphs-section">
+                    <h2>Statistics Overview</h2>
+                    <div class="graph-row">
+                        <div class="graph-container">
+                            <h4>XP Progress Over Time</h4>
+                            <div id="xpProgressChart"></div>
+                        </div>
+                        <div class="graph-container">
+                            <h4>Top Skills</h4>
+                            <div id="skillsChart"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="js/index.js"></script>
+</body>
+</html>
