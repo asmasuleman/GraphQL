@@ -46,7 +46,7 @@ export async function createStudentObject(accessToken) {
             student.cohort = 3;
             break;
         default:
-            student.cohort = "New Cohort";
+            student.cohort = 4;
     }
     return student;
 }

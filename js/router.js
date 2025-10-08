@@ -3,8 +3,6 @@ export const routes = [
     { path: "/login", page: "login-page" }
 ];
 
-const pathToRegex = path => new RegExp("^" + path.replace(/\//g, "\\/").replace(/:\w+/g, "(.+)") + "$");
-
 export function getCookie(name) {
     const value = `; ${document.cookie}`;
     const parts = value.split(`; ${name}=`);
@@ -26,7 +24,7 @@ export function validateToken() {
         return false;
     }
 }
-// Navigate to a new URL and call the router
+
 export const navigateTo = url => {
     history.pushState(null, null, url);
     router();
@@ -36,18 +34,12 @@ function showPage(pageId) {
     document.querySelectorAll('.view-page').forEach(page => {
         page.classList.add('hidden');
     });
-        // Show the requested page
+
     const page = document.getElementById(pageId);
     if (page) {
         page.classList.remove('hidden');
     }
 
-    //  // Load data if it's the profile page
-    // if (pageId === 'profile-page') {
-    //     loadProfileData();
-    // }
-    
-    // Dispatch event for page-specific logic
     const event = new CustomEvent('pageChanged', { detail: { pageId } });
     document.dispatchEvent(event);
 }
@@ -56,7 +48,7 @@ export const router = async () => {
     const potentialMatches = routes.map(route => {
         return {
             route: route,
-            result: location.pathname.match(pathToRegex(route.path))
+            result: location.pathname.match(route.path)
         };
     });
   // Find a matching route
@@ -74,7 +66,7 @@ export const router = async () => {
 
     showPage(match.route.page);
 };
-// At the end of router.js
+
 export function initRouter() {
     window.addEventListener("popstate", router);
     

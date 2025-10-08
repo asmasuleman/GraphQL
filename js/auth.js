@@ -22,8 +22,6 @@ export async function logout() {
         // Clear storage
         document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
         localStorage.clear();
-        sessionStorage.clear();
-
         
         const { navigateTo } = await import('./router.js');
         navigateTo('/login');

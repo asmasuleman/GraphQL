@@ -36,7 +36,7 @@ async function handleLogin() {
 
         if (response.ok) {
             const token = await response.json();
-            document.cookie = `token=${token}; path=/; SameSite=Lax; Secure`;
+            document.cookie = `token=${token}`;
             
             const student = await createStudentObject(token);
             if (student) {

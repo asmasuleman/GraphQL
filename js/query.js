@@ -28,7 +28,6 @@ export async function dataQuery(token, query) {
 }
 
 
-// Get Student Details
 export const loginQuery = (student) => `
   query {
     user(where: { id: { _eq: ${student.id} }}) {
@@ -46,7 +45,6 @@ export const loginQuery = (student) => `
   }
 `
 
-// Get Student XP
 export const xpQuery = (student) => `
   query {
     user(where: { id: { _eq: ${student.id} }}) {
@@ -56,7 +54,7 @@ export const xpQuery = (student) => `
   }
 `
 
-// Project Delivery Timeline with the XP
+
 export const projectTimelineXP = (student) => `
 query XP_Project_History {
     user(where: { id: { _eq: ${student.id} }}) {
@@ -78,7 +76,6 @@ query XP_Project_History {
   }
 `
 
-// Get Student Skills
 export const skills = (student) => `
   query {
     user(where: { id: { _eq: ${student.id} } }) {

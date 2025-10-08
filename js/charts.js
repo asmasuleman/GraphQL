@@ -68,7 +68,7 @@ function createXPProgressChart(studentData) {
         polyline.setAttribute("stroke-linecap", "round");
         svg.appendChild(polyline);
 
-        // Points with tooltips
+        // Points
         data.forEach((d, i) => {
             const x = padding + (i / (data.length - 1)) * chartWidth;
             const y = padding + chartHeight - (d.cumulativeXP / maxXP) * chartHeight;
